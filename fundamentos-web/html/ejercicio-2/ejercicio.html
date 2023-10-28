@@ -17,7 +17,7 @@
         <ul>
             <li>
                 <!-- Completa la navegación -->
-                <a href="#">Acerca de</a>
+                <a href="acerca.html">Acerca de</a>
             </li>
         </ul>
     </nav>
@@ -28,9 +28,28 @@
         <form>
             <label for="nombre">Nombre:</label>
             <input type="text" id="nombre" name="nombre" required>
-        
+            <br><br>
             <label for="apellido">Apellido:</label>
             <input type="text" id="apellido" name="apellido" required>
+            <br><br>
+            <label for="email">Correo Electronico</label>
+            <input type="email" name="email" id="email" required>
+            <br><br>
+            <label for="contraseña">Contraseña</label>
+            <input type="password" name="password" id="password" required>
+            <br><br>
+            <label for="fecha_nacimiento">Fecha de nacimiento</label>
+            <input type="date" name="fecha_nacimiento" id="fecha_nacimiento" required>
+            <br><br>
+            <label for="telefono">Número de Teléfono</label>
+            <input type="number" name="telefono" id="telefono" required>
+            <br><br>
+            <label for="direccion">Dirección</label>
+            <textarea name="direccion" cols="columns" rows="rows" required></textarea>
+
+            <br><br>
+            <button type="submit">Registrar</button>
+
 
             <!-- Agrega los inputs faltantes -->
         </form>

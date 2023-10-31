@@ -1,0 +1,123 @@
+<div class="container">
+  <h1>
+    <img [src]="angularLogo" width="75" height="75" />
+    Fundamentos Angular
+  </h1>
+
+  <!-- #region INTERPOLACIÓN -->
+  <h2># Interpolación</h2>
+  <div class="interpolacion">
+    <span>Curso: {{ appName }}</span>
+    <span>{{ 'hi angular '.repeat(5) }}</span>
+  </div>
+  <!-- #endregion -->
+
+  <!-- #region BINDING -->
+
+  <h2># Binding</h2>
+  <div class="binding">
+    <input type="text" [value]="email"/>
+    <button [disabled]="btnDisabled">Enviar</button>
+  </div>
+
+  <!-- #endregion -->
+
+
+  <!-- #region EVENT BINDING -->
+  <h2># Event Binding</h2>
+  <div class="eventBinding">
+    <button (click)="mostrarAlerta()">
+      Alerta
+    </button>
+
+    <hr />
+
+    <div class="contadorOvejas">
+      <div class="box">
+        <span>{{ "🐑".repeat(contadorOvejas) }}</span>
+      </div>
+      <button (click)="contarOveja()">
+        💤
+      </button>
+      <span style="float: right; color: white; font-size: 1.5rem;">{{ contadorOvejas }}</span>
+    </div>
+    <input type="number" (change)="establecerOvejas($event)"/>
+  </div>
+  <!-- #endregion -->
+
+  <!-- #region DATA BINDING-->
+  <h2># Data Binding</h2>
+
+  <div class="dataBinding">
+    <div class="ngModel">
+      <h3>NgModel</h3>
+      <span>Nombre: {{ persona.nombre }} </span>
+      <div>
+        <!-- #nameInput es equivalente a crear una referencia al elemento y sus propiedades -->
+        <input type="text" required #nameInput="ngModel" [(ngModel)]="persona.nombre" pattern="([a-zA-Zñó]{1,}\s)([a-zA-Zñó\s]{1,})([a-zA-Zñó]{1,})"/>
+        <!-- nameInput.valid, propiedad que Angular genera automáticamente para controlar la validación -->
+        <span
+          class="message"
+          [class.error]="persona.nombre !== '' && nameInput.invalid"
+          [style.font-weight]="persona.nombre !== '' && nameInput.invalid && 'bold'"
+        >
+          {{ nameInput.valid ? '✅' : '❌ Ingresa un nombre completo' }}
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <!-- #endregion -->
+
+  <!-- #region DIRECTIVAS -->
+
+  <h2># Directivas </h2>
+  <div class="directivas">
+    <h3>*ngIf</h3>
+    <!-- ngIf es una directiva de control (en este caso aplica un if) -->
+    <button *ngIf="nameInput.valid; else elseBlock" (click)="agregarPersona()">Agregar Persona</button>
+
+    <ng-template #elseBlock>
+      <span style="font-size: 0.75rem; color: gainsboro">Completa el campo</span>
+    </ng-template>
+
+    <h3>*ngFor</h3>
+    <!-- #region ngFor-->
+    <ul class="invitados" *ngIf="listaPersonas.length > 0">
+      <h4>Mi Lista de Invitados 🥳</h4>
+      <li *ngFor="let persona of listaPersonas; index as i">
+        <button (click)="borrarPersona(i)">❌</button> {{ persona }}
+      </li>
+    </ul>
+
+    <h4>Mi Pokedex</h4>
+    <div class="pokemons">
+      <div *ngFor="let miPokemon of miPokedex">
+        <a href={{miPokemon.url}} target="_blank">
+          <span>{{ miPokemon.name }}</span>
+        </a>
+      </div>
+
+      <!--
+        AQUÍ PUEDES AGREGAR EL HTML NECESARIO PARA LA IMAGEN DEL POKÉMON
+       -->
+
+    </div>
+    <!-- #endregion -->
+
+    <h3>[ngSwitch]</h3>
+    <div>
+      <input type="text" required #nameInput="ngModel" [(ngModel)]="nuevoPokemon" />
+      <div [ngSwitch]="nuevoPokemon">
+        <div *ngFor="let miPokemon of miPokedex">
+          <span *ngSwitchCase="miPokemon.name"> Ya tienes ese pokemon ¯\_(ツ)_/¯ </span>
+        </div>
+        <span *ngSwitchCase="''">Registra tu nuevo pokemon 👾</span>
+        <span *ngSwitchDefault>¡Sí Puedes registrar ese pokemon! 🎉</span>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- #endregion -->
+</div>

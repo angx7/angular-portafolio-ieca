@@ -1,0 +1,134 @@
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+h1 {
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5rem;
+  color: rgb(255,0,0);
+}
+
+h1 img {
+  margin-right: 25px;
+}
+
+h2 {
+  color: rgb(255, 50, 75);
+}
+
+h3 {
+  color: beige;
+  font-size: .95rem;
+}
+
+h3::before {
+  content: "⚪ ";
+}
+
+.interpolacion span {
+  font-size: 1.3rem;
+  font-family: monospace;
+  font-style: italic;
+  letter-spacing: 2px;
+  color: thistle;
+  display: block;
+}
+
+.binding button {
+  margin-left: 20px;
+}
+
+.eventBinding button {
+  background-color: rgba(0, 0, 255, 0.75);
+  padding: 5px 15px;
+  border-radius: 5px;
+  color: #fff;
+  font-size: 1rem;
+}
+
+.eventBinding hr {
+  border-color: rgba(255,255,255,0.45);
+}
+
+.eventBinding .contadorOvejas .box {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  margin-bottom: 10px;
+  border: 1px solid chocolate;
+  height: auto;
+  min-height: 20px;
+}
+
+.eventBinding input {
+  margin-top: 10px;
+  width: 40px;
+  padding: 8px;
+}
+
+.eventBinding .contadorOvejas .box span {
+  letter-spacing: 10px;
+}
+
+.dataBinding .ngModel span {
+  color: white;
+}
+
+.dataBinding .ngModel span.message {
+  color: rgb(177, 177, 177);
+}
+
+.dataBinding .ngModel span.message.error {
+  color: red;
+}
+
+
+.directivas {
+  color: white;
+}
+
+.directivas .invitados {
+  margin: 0;
+  background-color: orangered;
+}
+
+.directivas .invitados {
+  list-style: none;
+  padding: 0;
+}
+
+.directivas .invitados li {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 10px;
+  background-color: purple;
+}
+
+.directivas .invitados li button {
+  background: transparent;
+}
+
+.directivas .pokemons {
+  border: 1px dashed red;
+  width: 100%;
+  display: flex;
+}
+
+.directivas .pokemons a {
+  color: cyan;
+}
+
+.directivas .pokemons div::before {
+  content: '👾 ';
+}
+
+.directivas .pokemons div {
+  border: 1px dashed green;
+  width: 150px;
+  font-size: 0.85rem;
+}
+

@@ -39,12 +39,13 @@ function vaciarCarritoConTotal() {
 
     // Completa aquí código de escenario 1
 
+
     for (const producto of carrito) {
         total += producto.precio;
         carrito.splice(carrito.indexOf(producto), 1);
     }
 
-    console.log("Resultado: " + carrito, total);
+    console.log(carrito, total);
 }
 
 /*

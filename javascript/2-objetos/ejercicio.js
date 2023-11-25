@@ -21,9 +21,11 @@
 const juegos = {
     aguila: 0,
     sol: 1,
-    tirarMoneda: undefined
-}
+    tirarMoneda: () => {
+        return Math.random() < 0.5 ? "águila" : "sol";
+    },
+};
 
 for (let tiros = 0; tiros < 10; tiros++) {
-    // juegos.tirarMoneda()
+    console.log(juegos.tirarMoneda());
 }

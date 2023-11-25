@@ -39,15 +39,19 @@ function vaciarCarritoConTotal() {
 
     // Completa aquí código de escenario 1
 
-
     for (const producto of carrito) {
         total += producto.precio;
-        carrito.splice(carrito.indexOf(producto), 1);
+        console.log(carrito.indexOf(producto))
+        carrito.splice(carrito.indexOf(producto), 0);
+    }
+
+    for (const producto of carrito) {
+        carrito.splice(carrito.indexOf(producto), 3);
     }
 
     console.log(carrito, total);
-
 }
+
 
 /*
     ESCENARIO 2 : UNIFICANDO GRUPOS DE ESTUDIANTES
@@ -65,6 +69,8 @@ function cuentaDeAlumnos() {
     const grupoB = ["Alejandro Ruiz", "Carmen Ortega", "Roberto Mendoza", "Patricia Vargas", "Eduardo Morales", "Olga Reyes", "Gustavo Paredes", "Natalia Soto", "Hector Delgado", "Monica Castillo", "Raul Rios", "Raquel Valdez", "Fernando Acosta", "Silvia Castro", "Manuel Vega", "Lourdes Guzman", "Jorge Navarro"]
 
     // Completa aquí código de Escenario 2
+    const uniongrupo = grupoA.concat(grupoB)
+    console.log("La cantidad de alumnos en el nuevo grupo es: " + uniongrupo.length)
 }
 
 /*
@@ -90,9 +96,16 @@ function transmitiendoBatch() {
         "DDDDDDDDDDDD", "11010100101", "01010101010", "11110000000", "00001111000", "10101010101", "11001100110", "00110011001", "11111111111", "00000000000", "10000000000", "01000000000", "11000000000", "00100000000", "10100000000", "01100000000", "11100000000", "00010000000", "10010000000", "01010000000", "11010000000", "00110000000", "10110000000", "01110000000", "11110000000", "00001000000", "10001000000", "01001000000", "11001000000", "00101000000", "10101000000", "01101000000", "11101000000", "00011000000", "10011000000", "01011000000", "11011000000", "00111000000", "10111000000", "01111000000", "11111000000", "00000100000", "10000100000", "01000100000", "11000100000", "00100100000", "10100100000", "01100100000", "11100100000", "00010100000"];
 
     // Completa aquí código de Escenario 3
+    const batchSize = 50;
+
+    for (let i = 0; i < backup.length; i += batchSize) {
+        const batch = backup.slice(i, i + batchSize);
+        console.log(batch);
+        console.log("Cantidad de elementos en el lote: " + batch.length);
+    }
 }
 
-//vaciarCarritoConTotal()
-//cuentaDeAlumnos()
-//transmitiendoBatch()
+vaciarCarritoConTotal()
+cuentaDeAlumnos()
+transmitiendoBatch()
 

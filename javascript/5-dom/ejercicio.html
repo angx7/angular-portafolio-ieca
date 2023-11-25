@@ -7,10 +7,11 @@
 <body>
     <div style="display: flex">
         <input type="text" id="inputEncabezado" placeholder="Ingresa el nuevo encabezado"
-        style="width:70%;margin-bottom:10px" />
+            style="width:70%;margin-bottom:10px" />
     </div>
     <div style="display: flex">
-        <button id="btnActualizacion" onClick="modificarEncabezado()" style="margin-right: 10px">Establecer Encabezado</button>
+        <button id="btnActualizacion" onClick="modificarEncabezado()" style="margin-right: 10px">Establecer
+            Encabezado</button>
         <button id="btnUndo" disabled>Encabezado Anterior</button>
     </div>
     <h1 id="encabezado">...</h1>
@@ -37,10 +38,42 @@
         const btnUndo = document.getElementById('btnUndo')
         const tituloEncabezado = document.getElementById('encabezado')
         const inputEncabezado = document.getElementById('inputEncabezado')
+        let titulosAnteriores = [];
+
 
         function modificarEncabezado() {
             /* Tu código aquí */
+
+            const nuevoTitulo = inputEncabezado.value.trim();
+            if (nuevoTitulo !== "") {
+                // Guardar el título actual antes de cambiarlo
+                titulosAnteriores.push(tituloEncabezado.textContent);
+
+                // Establecer el nuevo título
+                tituloEncabezado.textContent = nuevoTitulo;
+
+                // Habilitar el botón "btnUndo" si hay al menos 2 títulos guardados
+                if (titulosAnteriores.length >= 2) {
+                    btnUndo.disabled = false;
+                }
+            } else {
+                // Notificar al usuario si el valor es vacío
+                alert("El valor no puede ser vacío");
+            }
+
+            // Limpiar el campo de entrada
+            inputEncabezado.value = "";
         }
+
+        btnUndo.addEventListener('click', function () {
+            // Restaurar el título anterior 
+            tituloEncabezado.textContent = titulosAnteriores.pop();
+
+            //Deshabilitar el botón si no existe un título anterior 
+            if (titulosAnteriores.length < 2) {
+                btnUndo.disabled = true;
+            }
+        });
     </script>
 </body>
 

@@ -46,6 +46,7 @@ function vaciarCarritoConTotal() {
     }
 
     console.log(carrito, total);
+
 }
 
 /*

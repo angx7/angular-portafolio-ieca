@@ -25,11 +25,12 @@ class ListaNumeros {
             Se utiliza para crear un nuevo array reteniendo solo los elementos que cumplan con una condición específica
             La condición debe devolver `true` o `false`
         */
-       
+
         // Calculo de la media
         const media = this.numeros.reduce((a, b) => a + b, 0) / this.numeros.length
 
         // COMPLETA AQUÍ CÓDIGO CON MÉTODO .filter
+        return this.numeros.filter((numero) => numero > media)
     }
 
     ordenamientoMayorAMenor() {
@@ -42,12 +43,13 @@ class ListaNumeros {
         */
 
         // COMPLETA AQUÍ CÓDIGO CON MÉTODO .sort
+        return this.numeros.sort((a, b) => b - a)
 
         console.log(this.numeros)
     }
-    
+
 }
 
-const misNumeros = new ListaNumeros([1,5,3,4,2,6,8,10,9,7])
-misNumeros.numerosMayoresAMedia()
-misNumeros.ordenamientoMayorAMenor()
+const misNumeros = new ListaNumeros([1, 5, 3, 4, 2, 6, 8, 10, 9, 7])
+console.log(misNumeros.numerosMayoresAMedia())
+console.log(misNumeros.ordenamientoMayorAMenor())

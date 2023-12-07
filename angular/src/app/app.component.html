@@ -16,7 +16,7 @@
 
   <h2># Binding</h2>
   <div class="binding">
-    <input type="text" [value]="email"/>
+    <input type="text" [value]="email" />
     <button [disabled]="btnDisabled">Enviar</button>
   </div>
 
@@ -41,7 +41,7 @@
       </button>
       <span style="float: right; color: white; font-size: 1.5rem;">{{ contadorOvejas }}</span>
     </div>
-    <input type="number" (change)="establecerOvejas($event)"/>
+    <input type="number" (change)="establecerOvejas($event)" />
   </div>
   <!-- #endregion -->
 
@@ -54,13 +54,11 @@
       <span>Nombre: {{ persona.nombre }} </span>
       <div>
         <!-- #nameInput es equivalente a crear una referencia al elemento y sus propiedades -->
-        <input type="text" required #nameInput="ngModel" [(ngModel)]="persona.nombre" pattern="([a-zA-Zñó]{1,}\s)([a-zA-Zñó\s]{1,})([a-zA-Zñó]{1,})"/>
+        <input type="text" required #nameInput="ngModel" [(ngModel)]="persona.nombre"
+          pattern="([a-zA-Zñó]{1,}\s)([a-zA-Zñó\s]{1,})([a-zA-Zñó]{1,})" />
         <!-- nameInput.valid, propiedad que Angular genera automáticamente para controlar la validación -->
-        <span
-          class="message"
-          [class.error]="persona.nombre !== '' && nameInput.invalid"
-          [style.font-weight]="persona.nombre !== '' && nameInput.invalid && 'bold'"
-        >
+        <span class="message" [class.error]="persona.nombre !== '' && nameInput.invalid"
+          [style.font-weight]="persona.nombre !== '' && nameInput.invalid && 'bold'">
           {{ nameInput.valid ? '✅' : '❌ Ingresa un nombre completo' }}
         </span>
       </div>
@@ -95,7 +93,12 @@
       <div *ngFor="let miPokemon of miPokedex">
         <a href={{miPokemon.url}} target="_blank">
           <span>{{ miPokemon.name }}</span>
+          <p>pepe</p>
+
         </a>
+      </div>
+      <div>
+        <h2>"hola</h2>
       </div>
 
       <!--

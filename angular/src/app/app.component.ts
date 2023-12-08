@@ -71,7 +71,9 @@ export class AppComponent implements OnInit {
           fetch(id.url)
             .then((response) => response.json())
             .then((pokemon) => {
-              id.imagen = pokemon.sprites.front_default;
+              id.image = pokemon.sprites.front_default;
+              id.xp = pokemon.base_experience;
+              console.log(id.xp)
             });
         });
       });

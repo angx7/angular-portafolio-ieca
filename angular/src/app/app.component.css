@@ -10,7 +10,7 @@ h1 {
   align-items: center;
   justify-content: center;
   font-size: 2.5rem;
-  color: rgb(255,0,0);
+  color: rgb(255, 0, 0);
 }
 
 h1 img {
@@ -52,7 +52,7 @@ h3::before {
 }
 
 .eventBinding hr {
-  border-color: rgba(255,255,255,0.45);
+  border-color: rgba(255, 255, 255, 0.45);
 }
 
 .eventBinding .contadorOvejas .box {
@@ -118,6 +118,12 @@ h3::before {
   display: flex;
 }
 
+.directivas .pokemons2 {
+  border: 1px dashed red;
+  width: 100%;
+  display: flex;
+}
+
 .directivas .pokemons a {
   color: cyan;
 }
@@ -132,3 +138,10 @@ h3::before {
   font-size: 0.85rem;
 }
 
+.directivas .pokemons2 div {
+  border: 1px dashed green;
+  width: 150px;
+  margin: 0 auto;
+  padding-left: 15px;
+  font-size: 0.85rem;
+}

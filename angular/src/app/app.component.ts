@@ -60,17 +60,21 @@ export class AppComponent implements OnInit {
       .then((response) => response.json())
       .then((data) => {
         console.log(data.results)
-        this.miPokedex = data.results
-      })
+        this.miPokedex = data.results;
 
-    /*
-    AQUÍ PUEDES CONTINUAR CON EL EJERCICIO PARA OBTENER LA IMAGEN DEL POKÉMON
-      -> Recuerda revisar el API de https://pokeapi.co/ <-
-    */
+        /*
+        AQUÍ PUEDES CONTINUAR CON EL EJERCICIO PARA OBTENER LA IMAGEN DEL POKÉMON
+          -> Recuerda revisar el API de https://pokeapi.co/ <-
+        */
 
+        this.miPokedex.forEach(id => {
+          fetch(id.url)
+            .then((response) => response.json())
+            .then((pokemon) => {
+              id.imagen = pokemon.sprites.front_default;
+            });
+        });
+      });
   }
-
   nuevoPokemon: string = "";
-
-
 }

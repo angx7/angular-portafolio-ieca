@@ -103,7 +103,9 @@
     </div>
     <div class="pokemons2">
       <div *ngFor="let miPokemon of miPokedex">
-        <img [src]="miPokemon.imagen" alt="{{ miPokemon.name }} Image" width="70" height="70" />
+        <a href={{miPokemon.url}} target="_blank">
+          <img [src]="miPokemon.imagen" alt="{{ miPokemon.name }} Image" width="70" height="70" />
+        </a>
       </div>
     </div>
     <!-- #endregion -->
